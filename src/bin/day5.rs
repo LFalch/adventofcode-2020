@@ -2,11 +2,7 @@ use adventofcode_2020::read_lines;
 
 fn main() {
     let mut seats: Vec<_> = read_lines("day5.txt")
-        .map(|s| (
-            u16::from_str_radix(&s[..7].replace('F', "0").replace('B', "1"), 2).unwrap(),
-            u16::from_str_radix(&s[7..].replace('L', "0").replace('R', "1"), 2).unwrap(),
-        ))
-        .map(|(row, col)| row * 8 + col)
+        .map(|s| u16::from_str_radix(&s.replace('F', "0").replace('B', "1").replace('L', "0").replace('R', "1"), 2).unwrap())
         .collect();
 
     seats.sort_unstable();
